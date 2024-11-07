@@ -1057,7 +1057,8 @@ function render_sankey(allNodes, allFlows, cfg, numberStyle) {
       case 'above': return [valObj, ...nameObjs];
       case 'after': // Add a colon just before the value
         nameObjs[nameObjs.length - 1].txt += ': '; // FALLS THROUGH
-      default: return [...nameObjs, valObj]; // 'below'
+      case 'below': return [...nameObjs, valObj];
+      default: return [valObj, ...nameObjs]; // 'above' is now default
     }
   }
 
